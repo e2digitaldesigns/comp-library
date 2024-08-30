@@ -8,7 +8,9 @@ const withThemeProvider = (Story: any) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
 
-    <Story />
+    <div style={{ width: "800px" }}>
+      <Story />
+    </div>
   </ThemeProvider>
 );
 
