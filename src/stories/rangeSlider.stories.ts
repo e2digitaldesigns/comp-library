@@ -3,7 +3,7 @@ import { RangeSlider as Component } from "../Components";
 import { variants } from "../types";
 
 const meta = {
-  title: "Example/Range Slider",
+  title: "Components/Range Slider",
   component: Component,
   parameters: {
     layout: "centered"
@@ -16,6 +16,7 @@ const meta = {
 } satisfies Meta<typeof Component>;
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
 const stories: { [key: string]: StoryObj } = {};
 
@@ -37,3 +38,10 @@ export const Info = stories.Info;
 export const Light = stories.Light;
 export const Dark = stories.Dark;
 export const Link = stories.Link;
+
+export const Gradient: Story = {
+  args: {
+    gradient: true,
+    foregroundColor: "green"
+  }
+};

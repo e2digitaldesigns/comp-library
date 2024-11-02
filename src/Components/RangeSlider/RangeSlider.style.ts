@@ -1,11 +1,12 @@
 import Styled from "styled-components";
-import { variantParser, variantParserValue } from "../utils";
+import { variantParserValue } from "../utils";
 
 interface RangeSliderProps {
-  variant?: string;
   backgroundColor?: string;
   roundThumb?: boolean;
+  thumbColor?: string;
   value: number;
+  variant?: string;
 }
 
 export const RangeSliderWrapper = Styled.div<RangeSliderProps>`
@@ -13,35 +14,46 @@ export const RangeSliderWrapper = Styled.div<RangeSliderProps>`
 
   input[type="range"] {
     -webkit-appearance: none;
-    width: 100%;
-    height: 8px;
+    background: ${props => parseColor(props.backgroundColor, props.variant, "primary")};
     border-radius: .25rem;  
-    background: ${props => (props.backgroundColor ? props.backgroundColor : variantParserValue(props.variant, "primary"))};
-    outline: none;
+    display: block;
+    height: ${props => (props.roundThumb ? "4px" : "12px")};
     opacity: 0.7;
+    outline: none;
     transition: opacity .2s;
-    background-image:  ${props => `linear-gradient( to right, violet ${props.value}%, indigo ${props.value}%)`};
+    width: 100%;
+    /* background-image:  ${props => `linear-gradient( to right, violet ${props.value}%, indigo ${props.value}%)`}; */
 
-    &::-webkit-slider-thumb {
+      &:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+      }
+
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
         appearance: none;
-        width: 1.5rem;
-        height: ${props => (props.roundThumb ? "1.5rem" : "100%")};
+        background: ${props => parseColor(props.thumbColor, props.variant, "secondary")};
         border-radius: ${props => (props.roundThumb ? "50%" : "0")};
-        /* background: ${props => (props.backgroundColor ? props.backgroundColor : variantParserValue(props.variant, "secondary"))}; */
-        background: red;
-
         cursor: pointer;
-    },
+        height: ${props => (props.roundThumb ? "1rem" : "100%")};
+        width: 1rem;
+      }
 
-    &::-moz-range-thumb {
-      width: 1.5rem;
-      height: ${props => (props.roundThumb ? "1.5rem" : "100%")};
-      border-radius: ${props => (props.roundThumb ? "50%" : "0")};
-      /* background: ${props => (props.backgroundColor ? props.backgroundColor : variantParserValue(props.variant, "secondary"))}; */
-      background: red;
-      cursor: pointer;
+
+      &::-moz-range-thumb {
+        background: ${props => parseColor(props.thumbColor, props.variant, "secondary")};
+        border-radius: ${props => (props.roundThumb ? "50%" : "0")};
+        cursor: pointer;
+        height: ${props => (props.roundThumb ? "1.5rem" : "100%")};
+        width: 1.5rem;
     }
   }
-
-   
 `;
+
+function parseColor(
+  color: string | undefined,
+  variant: string | undefined,
+  colorType: "primary" | "secondary"
+) {
+  return color ? color : variantParserValue(variant, colorType);
+}
