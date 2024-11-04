@@ -54,7 +54,7 @@ export const SearchWrapper = Styled.div`
         outline: none;
         background-color: transparent;
         height: 100%;
-        padding: .125rem 0 0 3rem;
+        padding: .25rem 0 0 3rem;
         width: calc(100% - 2.5rem);
         color: ${props => props.theme.colors.text};
         
@@ -80,7 +80,7 @@ export const TypeAheadItem = Styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-        background-color: #f3f3f3;
+        filter: brightness(1.2);
     }
 
     >div:first-of-type {
@@ -133,7 +133,9 @@ export const AppListFilterItem = Styled.button<{ $isActive: boolean }>`
     font-weight: ${({ $isActive }) => ($isActive ? "bold" : "normal")};
 
     color: ${({ $isActive }) =>
-			$isActive ? props => props.theme.colors.textActive : props => props.theme.colors.text};
+      $isActive
+        ? props => props.theme.colors.textActive
+        : props => props.theme.colors.text};
 
     &:hover {
         color: ${props => props.theme.colors.textHover};
@@ -216,10 +218,10 @@ export const AppListPaginationButton = Styled.button<{ $isActive: boolean }>`
     border: none;
     cursor: ${({ $isActive }) => ($isActive ? "default" : "pointer")};
     outline: none;
-    background-color: ${props =>
-			props.$isActive ? "#bbb" : props.theme.colors.transparentBackground};
-
-
+    background-color: ${({ $isActive }) =>
+      $isActive
+        ? props => props.theme.colors.contentButtonActive
+        : props => props.theme.colors.contentButton};
 `;
 
 export const FooterWrapper = Styled.div`

@@ -22,7 +22,11 @@ export const theme = {
     primary: "#0070f3",
     text: "#333",
     textHover: "#000",
-    textActive: "#000"
+    textActive: "#000",
+
+    contentButton: "#bbb",
+    buttonContentHover: "#999",
+    contentButtonActive: "#999"
   }
 };
 
@@ -49,7 +53,11 @@ export const darkTheme = {
     primary: "#3f9cfb",
     text: "#bbb",
     textHover: "#fff",
-    textActive: "#fff"
+    textActive: "#fff",
+
+    contentButton: "#4a4a4a",
+    buttonContentHover: "#999",
+    contentButtonActive: "#ccc"
   }
 };
 
