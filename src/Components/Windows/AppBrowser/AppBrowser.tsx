@@ -85,10 +85,10 @@ export const AppBrowser: FC<AppBrowserProps> = ({
               typeAheadData.map(app => (
                 <Styled.TypeAheadItem
                   key={app.name}
-                  aria-label={`Choose app: ${app.image}`}
+                  aria-label={`Choose app: ${app.name}`}
                 >
                   <div>
-                    <img src={app.image} alt={app.name} />
+                    <img src={app.image} alt={`Choose app: ${app.name}`} />
                   </div>
 
                   <div>{app.name}</div>
@@ -116,7 +116,7 @@ export const AppBrowser: FC<AppBrowserProps> = ({
           {filteredResults.map((app, i) => (
             <Styled.AppListItem key={i} aria-label={`Choose app: ${app.image}`}>
               <div>
-                <img src={app.image} alt={app.name} />
+                <img src={app.image} alt={`Choose app: ${app.name}`} />
               </div>
 
               <div>{app.name}</div>
