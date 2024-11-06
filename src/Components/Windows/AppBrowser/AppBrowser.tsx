@@ -120,6 +120,8 @@ export const AppBrowser: FC<AppBrowserProps> = ({
               </div>
 
               <div>{app.name}</div>
+
+              <Styled.Bubble $isPinned={app.pinned} />
             </Styled.AppListItem>
           ))}
         </Styled.AppList>

@@ -20,7 +20,7 @@ type FilteredResults = {
   typeAheadData: AppData[];
 };
 
-const MAX_RESULTS = 12;
+const MAX_RESULTS = 10;
 const MAX_TYPE_AHEAD_RESULTS = 5;
 
 export const useAppFiltering = (
@@ -34,7 +34,9 @@ export const useAppFiltering = (
     const normalizedSearchTerm = searchTerm.toLowerCase();
 
     // Sort the data alphabetically
-    const sortedData = [...appData].sort((a, b) => a.name.localeCompare(b.name));
+    const sortedData = [...appData].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
 
     // Apply the filter to get the initial filtered data
     const filteredData =
@@ -42,7 +44,9 @@ export const useAppFiltering = (
         ? sortedData.filter(app => app.pinned)
         : filter === Filter.All
         ? sortedData
-        : sortedData.filter(app => app.internal === (filter === Filter.Internal));
+        : sortedData.filter(
+            app => app.internal === (filter === Filter.Internal)
+          );
 
     // Filter based on search term
     const searchFilteredData = filteredData.filter(app =>
@@ -58,8 +62,12 @@ export const useAppFiltering = (
 
     // Parse the type-ahead data
     const resultCount =
-      typeAheadMaxResults > MAX_TYPE_AHEAD_RESULTS ? MAX_TYPE_AHEAD_RESULTS : typeAheadMaxResults;
-    const typeAheadData = searchTerm ? searchFilteredData.slice(0, resultCount) : [];
+      typeAheadMaxResults > MAX_TYPE_AHEAD_RESULTS
+        ? MAX_TYPE_AHEAD_RESULTS
+        : typeAheadMaxResults;
+    const typeAheadData = searchTerm
+      ? searchFilteredData.slice(0, resultCount)
+      : [];
 
     return {
       filteredResults: paginatedData,

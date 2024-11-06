@@ -45,7 +45,7 @@ export const appData = [
     pinned: false
   },
   {
-    name: "Programming",
+    name: "Programmer",
     image: imgBase + "programming.png",
     internal: true,
     pinned: true

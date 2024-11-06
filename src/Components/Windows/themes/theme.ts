@@ -47,7 +47,7 @@ export const darkTheme = {
     gray6: "#8e8e8e",
 
     borderColor: "#2a2a2a",
-    transparentBackground: "rgb(225,225,225,20%)",
+    transparentBackground: "rgb(225,225,225,5%)",
     inputBackgroundColor: "#1a1a1a",
     dailogBoxBgColor: "rgba(0, 0, 0, 0.85)",
     primary: "#3f9cfb",

@@ -148,7 +148,7 @@ export const AppListFilterItem = Styled.button<{ $isActive: boolean }>`
 
 export const AppList = Styled.div`
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 100px;
     grid-gap: .5rem;
     height: 100%;
@@ -169,7 +169,8 @@ export const AppListItem = Styled.button`
     height: 85px;
     width: 100%;
     cursor: pointer;    
-    padding: .5rem; 
+    padding: .375rem; 
+    position: relative;
 
     &:hover {
         background-color: ${props => props.theme.colors.inputBackgroundColor};
@@ -195,12 +196,29 @@ export const AppListItem = Styled.button`
         }
     }
 
-    >div:last-of-type {
+    >div:nth-of-type(2) {
         height: 100%;
         font-size: .675rem;
         text-align: center;
         line-height: .875rem;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
+`;
+
+export const Bubble = Styled.div<{ $isPinned: boolean }>`
+    height:10px;
+    width:10px;
+    border-radius:50%;
+    background-color: ${props =>
+      props.$isPinned ? props.theme.colors.primary : props.theme.colors.gray4};
+    position:absolute;
+    top:-5px;
+    right:-5px;
 `;
 
 export const AppListPaginationWrapper = Styled.div`
