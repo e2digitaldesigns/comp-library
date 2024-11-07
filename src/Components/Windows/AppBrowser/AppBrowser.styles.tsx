@@ -9,7 +9,7 @@ export const AppBrowserWrapper = Styled.div`
     border: .0625rem solid ${props => props.theme.colors.borderColor};
     border-radius: .5rem;
     backdrop-filter: blur(14px);
-    background-color: ${props => props.theme.colors.dailogBoxBgColor};
+    background-color: ${props => props.theme.colors.primaryBgColor};
     box-shadow: ${props => props.theme.boxShadows.large};
     overflow: hidden;
     box-sizing: border-box;
@@ -17,89 +17,6 @@ export const AppBrowserWrapper = Styled.div`
     * {
         box-sizing: border-box;
         color: ${props => props.theme.colors.text};
-    }
-`;
-
-export const SearchWrapper = Styled.div`
-    background-color: ${props => props.theme.colors.inputBackgroundColor};
-    border-radius: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    height: 2.5rem;
-    margin: 0 2rem;
-    position: relative;
-    width: calc(100% - 5rem);
-    box-shadow: ${props => props.theme.boxShadows.inset};
-    border: .0625rem solid ${props => props.theme.colors.borderColor};
-
-    >div:first-of-type {
-        align-items: center;
-        display: flex;
-        font-size: 1.25rem;
-        height: 2.5rem;
-        justify-content: center;
-        position: absolute;
-        width: 2.5rem;
-        margin-left: 0.5rem;
-
-        > svg{
-        height: 1rem;
-        width: 1rem;
-       }
-    }
-
-    >input{
-        border: none;
-        outline: none;
-        background-color: transparent;
-        height: 100%;
-        padding: .25rem 0 0 3rem;
-        width: calc(100% - 2.5rem);
-        color: ${props => props.theme.colors.text};
-        
-    }
-`;
-
-export const TypeAheadWrapper = Styled.div`
-    width:calc(100% - 4rem);
-    position: absolute;
-    top: 2.5rem;
-    left: 2rem;
-    z-index: 10;
-`;
-
-export const TypeAheadItem = Styled.div`
-    display: flex;
-    gap: .25rem;
-    padding: .5rem;
-    background-color: ${props => props.theme.colors.inputBackgroundColor};
-    border-bottom: .0625rem solid ${props => props.theme.colors.borderColor};
-    cursor: pointer;
-    gap: 1rem;
-    transition: background-color 0.2s;
-
-    &:hover {
-        filter: brightness(1.2);
-    }
-
-    >div:first-of-type {
-        height: 1.25rem;
-        width: 1.25rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            height: 100%;
-            width: 100%;
-        }
-    },
-
-    >div:last-of-type {
-        font-size: .75rem;
-        display: flex;
-        align-items: center;
     }
 `;
 
@@ -133,9 +50,7 @@ export const AppListFilterItem = Styled.button<{ $isActive: boolean }>`
     font-weight: ${({ $isActive }) => ($isActive ? "bold" : "normal")};
 
     color: ${({ $isActive }) =>
-      $isActive
-        ? props => props.theme.colors.textActive
-        : props => props.theme.colors.text};
+			$isActive ? props => props.theme.colors.textActive : props => props.theme.colors.text};
 
     &:hover {
         color: ${props => props.theme.colors.textHover};
@@ -215,7 +130,7 @@ export const Bubble = Styled.div<{ $isPinned: boolean }>`
     width:10px;
     border-radius:50%;
     background-color: ${props =>
-      props.$isPinned ? props.theme.colors.primary : props.theme.colors.gray4};
+			props.$isPinned ? props.theme.colors.primary : props.theme.colors.gray4};
     position:absolute;
     top:-5px;
     right:-5px;
@@ -237,89 +152,7 @@ export const AppListPaginationButton = Styled.button<{ $isActive: boolean }>`
     cursor: ${({ $isActive }) => ($isActive ? "default" : "pointer")};
     outline: none;
     background-color: ${({ $isActive }) =>
-      $isActive
-        ? props => props.theme.colors.contentButtonActive
-        : props => props.theme.colors.contentButton};
+			$isActive
+				? props => props.theme.colors.contentButtonActive
+				: props => props.theme.colors.contentButton};
 `;
-
-export const FooterWrapper = Styled.div`
-   border-top: .0625rem solid ${props => props.theme.colors.borderColor};
-   height:4rem;
-   background-color: ${props => props.theme.colors.gray2};
-`;
-
-export const Footer = Styled.div`
-   display:flex;
-   margin: .5rem 2rem;
-   padding: .5rem;
-   justify-content: space-between;
-`;
-
-export const FooterButtonWrapper = Styled.button`
-   display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    border-radius: .25rem;
-    outline: none;
-    border: .0625rem dashed transparent;
-    cursor: pointer;
-    background-color: transparent;
-    transition: background-color 0.2s;
-    padding: .25rem .5rem;
-    gap: .5rem;
-    font-size: .75rem;
-    &:focus {
-        border: .0625rem dashed ${props => props.theme.colors.gray6};
-    }
-
-
-    &:hover {
-        background-color: ${props => props.theme.colors.gray3};
-    }
-
-    > div:nth-of-type(1) {
-    height: 1.5rem;
-    width: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:${props => props.theme.colors.gray4};
-
-    > svg{
-        height: 1rem;
-        width: 1rem;
-    }
-
-    }
-`;
-
-export const FooterLogoutButton = Styled.button`
-    border: .0625rem dashed transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    width: 2rem;
-    border-radius: .25rem;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    transition: background-color 0.2s;
-
-    &:hover {
-        background-color: ${props => props.theme.colors.gray3};
-    }
-
-    &:focus {
-        border: .0625rem dashed ${props => props.theme.colors.gray6};
-    }
-   
-    > svg{
-        height: 1rem;
-        width: 1rem;
-    }
-
-    `;
