@@ -1,5 +1,5 @@
 import { FC } from "react";
-import * as Styled from "../AppBrowser.styles";
+import * as Styled from "./AppBrowserPagination.styles";
 
 interface AppBrowserPaginationProps {
 	totalPages: number;

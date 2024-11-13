@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Filter } from "../../types";
 
-import * as Styled from "../AppBrowser.styles";
+import * as Styled from "./AppBrowserFilters.styles";
 
 interface AppBrowserFiltersProps {
 	filter: Filter;

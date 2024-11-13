@@ -50,6 +50,7 @@ export const HeaderButton = Styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     >svg{
         padding:0;
@@ -65,7 +66,14 @@ export const HeaderButton = Styled.button`
     }
 
     &:focus {
-        color: green
+        &:before{
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: .25rem;
+            border: .0625rem dashed ${({ theme }) => theme.colors.gray6};
+        }
     }
 `;
 

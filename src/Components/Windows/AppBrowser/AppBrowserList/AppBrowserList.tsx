@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import * as Styled from "../AppBrowser.styles";
+import * as Styled from "./AppBrowserList.styles";
 import { AppData } from "../../types";
 
 interface AppBrowserListProps {
